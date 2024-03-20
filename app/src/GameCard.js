@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WatchCard = ({ name, image }) => {
+const GameCard = ({ name, image }) => {
   return (
     <div className="bg-white p-4 m-2 w-1/5 rounded shadow">
       <h3 className="text-xl font-bold">{name}</h3>
@@ -9,4 +9,4 @@ const WatchCard = ({ name, image }) => {
   );
 };
 
-export default WatchCard;
+export default GameCard;

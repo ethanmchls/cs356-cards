@@ -1,4 +1,4 @@
-const watchesData = [
+const gameData = [
   { name: 'Rolex Submariner', category: 'Sports', subCategory: 'Diver', image: 'https://content.rolex.com/v7/dam/2023-06/upright-c/m124060-0001.png?impolicy=v7-majesty&imwidth=1200' },
   { name: 'Rolex Daytona', category: 'Sports', subCategory: 'Chronograph', image: 'https://m.media-amazon.com/images/I/71PwU1M+poL._AC_UY1000_.jpg' },
   { name: 'Rolex GMT Master II', category: 'Sports', subCategory: 'GMT', image: 'https://cdn11.bigcommerce.com/s-bc02e/images/stencil/1280x1280/products/113323/111295/126710blro__80483.1622656983.jpg?c=2' },
@@ -26,4 +26,4 @@ const watchesData = [
   { name: 'IWC Pilot', category: 'Casual', subCategory: 'Field/Pilot', image: 'https://s.turbifycdn.com/aah/movadobaby/iwc-pilot-s-automatic-36-iw324001-46.jpg' },
 ];
 
-module.exports = watchesData;
+module.exports = gameData;
