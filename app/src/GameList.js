@@ -1,5 +1,4 @@
 import React from 'react';
-import GameCard from './GameCard';
 
 const GameList = ({ games }) => {
   return (
