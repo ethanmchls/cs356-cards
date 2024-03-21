@@ -35,7 +35,7 @@ export const GameView = () => {
 
       <div className="navbar bg-base-300 rounded-box mb-4">
         <div className="flex-1 px-2 lg:flex-none text-lg font-bold">Game Night</div> 
-        <div className="flex justify-end flex-1 px-2">
+        <div className="flex justify-end flex-1">
           <div className="flex items-stretch">
             <div className="flex flex-col w-full mx-2 items-center">
               <div className="flex-row flex items-center gap-2">
@@ -72,7 +72,7 @@ export const GameView = () => {
                 <span>+</span>
               </div>
             </div>
-            <label className="input input-bordered input-primary flex items-center gap-2">
+            <label className="input input-bordered input-primary flex items-center gap-2 my-auto">
               <input
                 type="text"
                 className="grow w-20"
@@ -92,7 +92,7 @@ export const GameView = () => {
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
               </svg>
             </label>
-            <select onChange={(e) => setSelectedCategory(e.target.value)} className="select select-primary w-full max-w-xs ml-2">
+            <select onChange={(e) => setSelectedCategory(e.target.value)} className="select select-primary w-full max-w-xs ml-2 my-auto">
               <option value="">All Categories</option>
               {categories.map((category) => (
                 <option key={category} value={category}>
