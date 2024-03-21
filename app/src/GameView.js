@@ -44,7 +44,8 @@ export const GameView = () => {
                 <span>5</span>
                 <span>6</span>
                 <span>7</span>
-                <span>8+</span>
+                <span>8</span>
+                <span>+</span>
               </div>
             </div>
             <label className="input input-bordered input-secondary flex items-center gap-2">

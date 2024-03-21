@@ -2,11 +2,6 @@ import React from 'react';
 
 const GameList = ({ games }) => {
   return (
-    // <div className="flex flex-wrap">
-    //   {games.map((game) => (
-    //     <GameCard key={game.name} {...game} />
-    //   ))}
-    // </div>
     <div className="flex flex-wrap">
       {games.map((game) => (
         <div className="card max-w-[250px] bg-base-100 shadow-lg">
