@@ -2,10 +2,11 @@ import React from 'react';
 
 const GameList = ({ games }) => {
   return (
-    <div className="flex flex-wrap space-x-4">
+    <div className="mx-[6%] flex flex-wrap space-x-4 space-y-4">
       {games.map((game) => (
         <div
-          className="card max-w-[250px] bg-base-100 shadow-md rounded-box hover:shadow-lg hover:scale-105"
+          key={ game.name }
+          className="card w-[250px] h-[360px] bg-base-100 shadow-md rounded-box hover:shadow-lg hover:scale-105"
           onClick={() =>
             document.getElementById(`${game.name}-modal`).showModal()
           }

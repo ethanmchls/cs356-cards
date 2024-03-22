@@ -1,6 +1,11 @@
 const categories = [
-  { category: "Humor Judging" },
-  { category: "Other" },
+  { category: "Funny Comparison" },
+  { category: "Deception" },
+  { category: "Word" },
+  { category: "Strategy" },
+  { category: "Team" },
+  { category: "Dexterity" },
+  { category: "Card" }
 ];
 
 module.exports = categories;
