@@ -3,7 +3,7 @@ import React from 'react';
 const GameList = ({ games }) => {
   return (
     // <div className="mx-[6%] flex flex-wrap space-x-4 space-y-4">
-    <div className="w-full flex mt-4">
+    <div className="w-full flex my-4">
       <div className="grid grid-flow-row text-neutral-600 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-between gap-4">
         {games.map((game) => (
           <div
