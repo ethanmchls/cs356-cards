@@ -31,7 +31,7 @@ const GameList = ({ games }) => {
         {games.map((game) => (
           <div
             key={ game.name }
-            className="card w-auto h-full bg-base-200 shadow-md rounded-box hover:shadow-lg hover:scale-105"
+            className="card w-auto h-full bg-base-200 shadow-md rounded-box hover:shadow-lg hover:scale-[102%]"
             onClick={() =>
               document.getElementById(`${game.name}-modal`).showModal()
             }
