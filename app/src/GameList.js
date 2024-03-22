@@ -1,5 +1,11 @@
 import React from 'react';
 
+const GameComponent = ({ game }) => {
+  return (
+    <div dangerouslySetInnerHTML={{ __html: game.description.replace(/\n/g, '<br>') }} />
+  );
+};
+
 const GameList = ({ games }) => {
   return (
     // <div className="mx-[6%] flex flex-wrap space-x-4 space-y-4">
@@ -37,7 +43,8 @@ const GameList = ({ games }) => {
                 <div className="modal-box bg-base-100 rounded-box">
                   <h1 className="text-2xl font-bold">{game.name}</h1>
                   <p className="py-4">
-                    <b>Game description:</b><br></br> {game.description}
+                    <b>Game description:</b><br></br>
+                    <GameComponent game={game} />
                   </p>
                   <div className="modal-action">
                     <form method="dialog">

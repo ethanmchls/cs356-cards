@@ -25,7 +25,6 @@ const gameData = [
       "https://store.ncsml.org/wp-content/uploads/2018/07/Codenames-500x500.png",
     description: "Codenames description",
   },
-
   {
     name: "UNO",
     playerMin: 2,
