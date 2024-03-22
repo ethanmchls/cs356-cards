@@ -31,9 +31,9 @@ export const GameView = () => {
   const categories = gameCategories.map((category) => category.category);
 
   return (
-    <div className="container mx-auto p-4 h-screen">
-
-      <div className="navbar bg-base-300 rounded-box mb-4">
+    // <div className="container mx-auto p-4 h-screen w-screen">
+    <div className="container mx-auto p-4 w-screen h-screen flex flex-col">
+      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10">
         <div className="flex-1 px-2 lg:flex-none text-lg font-bold">Game Night</div> 
         <div className="flex justify-end flex-1">
           <div className="flex items-stretch">
@@ -104,7 +104,10 @@ export const GameView = () => {
         </div>
       </div>
 
-      <GameList games={filteredGames} />
+      <div className="overflow-y-scroll flex-grow">
+        <GameList games={filteredGames} />
+      </div>
     </div>
+
   );
 }
