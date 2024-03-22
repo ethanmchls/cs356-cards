@@ -9,7 +9,7 @@ const gameData = [
     rating: 5.1, 
     category: 'Funny Comparison', 
     image: 'https://media.kohlsimg.com/is/image/kohls/4466678?wid=600&hei=600&op_sharpen=1', 
-    description: 'What do you meme description' 
+    description: 'What Do You Meme? is a party card game for the social media generation. Each round, one player takes the role of judge and plays a photo card, after which everyone else plays a caption card to complete the meme. The judge decides the funniest pairing, and whoever played the winning caption card wins the round. Lather, rinse, and repeat.'
   },
   { 
     name: 'Codenames', 
@@ -21,7 +21,7 @@ const gameData = [
     rating: 7.5, 
     category: 'Team', 
     image: 'https://store.ncsml.org/wp-content/uploads/2018/07/Codenames-500x500.png', 
-    description: 'Codenames description' 
+    description: 'Two rival spymasters know the secret identities of 25 agents. Their teammates know the agents only by their codenames — single-word labels like "disease", "Germany", and "carrot". Yes, carrot. It\'s a legitimate codename. Each spymaster wants their team to identify their agents first...without uncovering the assassin by mistake.\nIn Codenames, two teams compete to see who can make contact with all of their agents first. Lay out 25 cards, each bearing a single word. The spymasters look at a card showing the identity of each card, then take turns clueing their teammates. A clue consists of a single word and a number, with the number suggesting how many cards in play have some association to the given clue word. The teammates then identify one agent they think is on their team; if they\'re correct, they can keep guessing up to the stated number of times; if the agent belongs to the opposing team or is an innocent bystander, the team\'s turn ends; and if they fingered the assassin, they lose the game.'
   },
 
   {
