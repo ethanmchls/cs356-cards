@@ -79,7 +79,7 @@ const GameCard = ({ game }) => {
     >
       <figure className="aspect-square"><img src={`${game.image}`} alt="" /></figure>
       <div className="card-body">
-        <div className="card-title text-lg">{game.name}</div>
+        <div className="card-title text-lg text-center mx-auto">{game.name}</div>
         <div className="card-actions justify-center">
           <div className="badge badge-outline border-secondary text-secondary">{game.ageMin}+</div> 
           <div className="badge badge-outline border-secondary text-secondary">
