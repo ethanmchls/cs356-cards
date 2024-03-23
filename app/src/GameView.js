@@ -33,13 +33,13 @@ export const GameView = () => {
   return (
     // <div className="container mx-auto p-4 h-screen w-screen">
     <div className="container mx-auto pt-4 w-screen h-screen flex flex-col">
-      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10">
-        <div className="flex-1 px-2 lg:flex-none text-lg font-bold">Game Night</div> 
+      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10 min-h-40 pt-8 mb-12 items-baseline">
+        <div className="flex-1 px-2 lg:flex-none text-7xl font-bold">Game Night ⚄</div> 
         <div className="flex justify-end flex-1">
           <div className="flex items-stretch">
             <div className="flex flex-col w-full mx-2 items-center">
               <div className="flex-row flex items-center gap-2">
-                <label className="text-xs">Group Size</label>
+                <label className="text-md">Group Size</label>
                 <svg
                   width="14px"
                   height="14px"
@@ -59,8 +59,8 @@ export const GameView = () => {
                   </g>
                 </svg>
               </div>
-              <input type="range" min={1} max={9} value={groupSize} className="range range-primary range-sm" step={1} onChange={handleGroupSizeChange} />
-              <div className="w-full flex justify-between text-xs px-2">
+              <input type="range" min={1} max={9} value={groupSize} className="range range-primary range-md w-80" step={1} onChange={handleGroupSizeChange} />
+              <div className="w-full flex justify-between text-sm px-2">
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
@@ -92,7 +92,7 @@ export const GameView = () => {
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
               </svg>
             </label>
-            <select onChange={(e) => setSelectedCategory(e.target.value)} className="select select-primary w-full max-w-xs ml-2 my-auto">
+            <select onChange={(e) => setSelectedCategory(e.target.value)} className="select select-primary w-full max-w-xs ml-2 my-auto text-md">
               <option value="">All Categories</option>
               {categories.map((category) => (
                 <option key={category} value={category}>
