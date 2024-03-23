@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cs356/static/css/main.b16f01f3.css",
-    "main.js": "/cs356/static/js/main.1c3f9823.js",
-    "static/js/592.918a8bb2.chunk.js": "/cs356/static/js/592.918a8bb2.chunk.js",
-    "index.html": "/cs356/index.html",
-    "main.b16f01f3.css.map": "/cs356/static/css/main.b16f01f3.css.map",
-    "main.1c3f9823.js.map": "/cs356/static/js/main.1c3f9823.js.map",
-    "592.918a8bb2.chunk.js.map": "/cs356/static/js/592.918a8bb2.chunk.js.map"
+    "main.css": "/game-night/static/css/main.b16f01f3.css",
+    "main.js": "/game-night/static/js/main.2d64c0eb.js",
+    "static/js/592.918a8bb2.chunk.js": "/game-night/static/js/592.918a8bb2.chunk.js",
+    "index.html": "/game-night/index.html",
+    "main.b16f01f3.css.map": "/game-night/static/css/main.b16f01f3.css.map",
+    "main.2d64c0eb.js.map": "/game-night/static/js/main.2d64c0eb.js.map",
+    "592.918a8bb2.chunk.js.map": "/game-night/static/js/592.918a8bb2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b16f01f3.css",
-    "static/js/main.1c3f9823.js"
+    "static/js/main.2d64c0eb.js"
   ]
 }
