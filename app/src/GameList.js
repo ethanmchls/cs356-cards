@@ -32,7 +32,11 @@ const GameModal = ({ game }) => {
           <div className="flex flex-col">
             <h1 className="text-2xl font-bold mb-6">{game.name}</h1>
             <p className="text-lg"><b>Category: </b>{game.category}</p>
-            <p className="text-lg"><b>Play time: </b>{game.playTimeMin}-{game.playTimeMax} minutes</p>
+            <p className="text-lg"><b>Play time: </b>
+              {game.playTimeMin === game.playTimeMax
+                ? `${game.playTimeMax} minutes`
+                : `${game.playTimeMin}-${game.playTimeMax} minutes`}
+            </p>
             <p className="text-lg"><b>Ages: </b>{game.ageMin}+</p>
             <p className="text-lg"><b>Group size: </b>{game.playerMin}-{game.playerMax} players</p>
             <p className="text-lg"><b>Rating: </b>{game.rating}/10</p>
