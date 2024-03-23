@@ -1,7 +1,7 @@
 {
-  "name": "app",
+  "name": "game-night",
   "version": "0.1.0",
-  "homepage": "https://ethanmchls.github.io/cs356-cards",
+  "homepage": "https://ethanmchls.github.io/game-night",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
