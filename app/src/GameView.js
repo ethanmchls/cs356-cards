@@ -33,8 +33,8 @@ export const GameView = () => {
   return (
     // <div className="container mx-auto p-4 h-screen w-screen">
     <div className="container mx-auto pt-4 w-screen h-screen flex flex-col">
-      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10 min-h-40 pt-8 mb-12 items-baseline">
-        <div className="flex-1 px-2 lg:flex-none text-7xl font-bold">Game Night ⚄</div> 
+      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10 min-h-32 mb-12">
+        <div className="flex-1 px-2 lg:flex-none text-6xl font-bold">Game Night ⚄</div> 
         <div className="flex justify-end flex-1">
           <div className="flex items-stretch">
             <div className="flex flex-col w-full mx-2 items-center">
