@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/game-night/static/css/main.b16f01f3.css",
-    "main.js": "/game-night/static/js/main.c2783da0.js",
-    "static/js/592.918a8bb2.chunk.js": "/game-night/static/js/592.918a8bb2.chunk.js",
+    "main.js": "/game-night/static/js/main.e8b537e7.js",
+    "static/js/592.8842ba58.chunk.js": "/game-night/static/js/592.8842ba58.chunk.js",
     "index.html": "/game-night/index.html",
     "main.b16f01f3.css.map": "/game-night/static/css/main.b16f01f3.css.map",
-    "main.c2783da0.js.map": "/game-night/static/js/main.c2783da0.js.map",
-    "592.918a8bb2.chunk.js.map": "/game-night/static/js/592.918a8bb2.chunk.js.map"
+    "main.e8b537e7.js.map": "/game-night/static/js/main.e8b537e7.js.map",
+    "592.8842ba58.chunk.js.map": "/game-night/static/js/592.8842ba58.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b16f01f3.css",
-    "static/js/main.c2783da0.js"
+    "static/js/main.e8b537e7.js"
   ]
 }
