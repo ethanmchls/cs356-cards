@@ -11,7 +11,7 @@ export const Home = () => {
           </svg>
         </div>
         <div className="">
-          <a href="/game-night/explore" className="btn btn-outline btn-primary w-32 mx-8">Explore</a>
+          <a href="#/explore" className="btn btn-outline btn-primary w-32 mx-8">Explore</a>
         </div>
       </div>
       <div className="divider divider-primary opacity-30 mt-[11px]"></div>
