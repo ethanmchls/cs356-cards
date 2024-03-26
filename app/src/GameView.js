@@ -45,8 +45,8 @@ export const GameView = () => {
 
   return (
     <div className="container mx-auto pt-4 w-screen h-screen flex flex-col">
-      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10 min-h-24">
-        <div className="flex-1 px-2 lg:flex-none font-bold xl:text-6xl lg:text-5xl md:text-3xl sm:text-2xl">
+      <div className="navbar flex lg:flex-row md:flex-row flex-col bg-base-300 rounded-box sticky top-0 z-10 lg:min-h-24 md:h-24 min-h-32">
+        <div className="flex-1 px-2 lg:flex-none font-bold xl:text-6xl lg:text-5xl md:text-3xl text-2xl">
           <a href="#/" className="hover:scale-105">Game Night</a>
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" className="mx-3 bi bi-dice-5 xl:w-12 lg:w-10 md:w-8 w-4 hover:animate-spin" viewBox="0 0 16 16">
             <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3z"/>
@@ -55,7 +55,7 @@ export const GameView = () => {
         </div>
         <div className="flex justify-end flex-1">
           <div className="flex items-stretch">
-            <div className="flex flex-col w-full mx-2 items-center">
+            <div className="flex flex-col w-full mx-2 items-center mb-4">
               <div className="flex-row flex items-center gap-2 tooltip" data-tip="Use slider to select your group size">
                 <label className="lg:text-lg md:text-md text-sm">Group Size</label>
                 <svg
@@ -77,7 +77,7 @@ export const GameView = () => {
                   </g>
                 </svg>
               </div>
-              <input type="range" min={1} max={9} value={groupSize} className="range range-primary lg:range-md range-sm xl:w-80 lg:w-60 md:w-48 w-40" step={1} onChange={handleGroupSizeChange} />
+              <input type="range" min={1} max={9} value={groupSize} className="range range-primary lg:range-md range-sm xl:w-80 lg:w-60 sm:w-60 xs:w-40 w-48" step={1} onChange={handleGroupSizeChange} />
               <div className="w-full flex justify-between text-sm px-2">
                 <span>1</span>
                 <span>2</span>
@@ -142,7 +142,7 @@ export const GameView = () => {
         </div>
       </div>
 
-      <div className="divider divider-primary opacity-30 mb-0"></div>
+      <div className="flex-shrink border-t-2 border-primary mt-4 mb-0 opacity-30"></div>
       <div className="overflow-y-scroll flex-grow">
         <GameList games={filteredGames} />
       </div>

@@ -14,7 +14,7 @@ export const Home = () => {
           <a href="#/explore" className="btn btn-outline btn-primary w-32 mx-8">Explore</a>
         </div>
       </div>
-      <div className="divider divider-primary opacity-30 mt-[11px]"></div>
+      <div className="flex-shrink border-t-2 border-primary my-4 opacity-30"></div>
       <div className="container mx-auto flex flex-col px-6 space-y-4">
         <h1 className="text-2xl font-bold">
           Welcome to Game Night!
