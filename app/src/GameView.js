@@ -56,26 +56,28 @@ export const GameView = () => {
         <div className="flex justify-end flex-1">
           <div className="flex items-stretch">
             <div className="flex flex-col w-full mx-2 items-center mb-4">
-              <div className="flex-row flex items-center gap-2 tooltip" data-tip="Use slider to select your group size">
-                <label className="lg:text-lg md:text-md text-sm">Group Size</label>
-                <svg
-                  width="14px"
-                  height="14px"
-                  viewBox="0 0 21 21"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#000000"
-                  className="bi bi-x cursor-pointer"
-                  onClick={() => handleResetGroupSize()}
-                >
-                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <g fill="none" fillRule="evenodd" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" transform="matrix(0 1 1 0 2.5 2.5)">
-                      <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path>
-                      <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>
+              <div className="flex-row flex items-center gap-2">
+                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom" data-tip="Use slider to select your group size">Group Size</label>
+                <div className="tooltip tooltip-bottom" data-tip="Reset group size">
+                  <svg
+                    width="14px"
+                    height="14px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000"
+                    className="bi bi-x cursor-pointer"
+                    onClick={() => handleResetGroupSize()}
+                  >
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g fill="none" fillRule="evenodd" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" transform="matrix(0 1 1 0 2.5 2.5)">
+                        <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path>
+                        <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>
+                      </g>
                     </g>
-                  </g>
-                </svg>
+                  </svg>
+                </div>
               </div>
               <input type="range" min={1} max={9} value={groupSize} className="range range-primary lg:range-md range-sm xl:w-80 lg:w-60 sm:w-60 xs:w-40 w-48" step={1} onChange={handleGroupSizeChange} />
               <div className="w-full flex justify-between text-sm px-2">
@@ -98,17 +100,19 @@ export const GameView = () => {
                 value={minAge}
                 onChange={(e) => setMinAge(e.target.value)}
               />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-                className="bi bi-x cursor-pointer"
-                onClick={handleClearMinAge}
-              >
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-              </svg>
+              <div className="tooltip" data-tip="Reset age">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                  className="bi bi-x cursor-pointer"
+                  onClick={handleClearMinAge}
+                >
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </div>
             </label>
             <select onChange={(e) => handleCategoryChange(e)} value={categoryPlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
               <option key="" value="">Categories</option>
