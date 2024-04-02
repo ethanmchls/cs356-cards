@@ -6,8 +6,8 @@ import gameCategories from './categories';
 export const GameView = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categoryPlaceholder, setCategoryPlaceholder] = useState('Categories');
-  // const [groupSizePlaceholder, setGroupSizePlaceholder] = useState('Group Size');
-  // const [agePlaceholder, setAgePlaceholder] = useState('Min Age');
+  const [groupSizePlaceholder, setGroupSizePlaceholder] = useState('Group Size');
+  const [agePlaceholder, setAgePlaceholder] = useState('Min Age');
   const [minAge, setMinAge] = useState(0);
   const [groupSize, setGroupSize] = useState(0);
 
@@ -18,7 +18,7 @@ export const GameView = () => {
 
   const handleAgeChange = (e) => {
     setMinAge(parseInt(e.target.value));
-    // setAgePlaceholder(e.target.value);
+    setAgePlaceholder(e.target.value);
   }
 
   const handleClearMinAge = () => {
@@ -26,12 +26,8 @@ export const GameView = () => {
   };
 
   const handleGroupSizeChange = (e) => {
-    // console.log(e.target.value);
     setGroupSize(parseInt(e.target.value));
-    // setGroupSizePlaceholder(e.target.value);
-    // if (e.target.value === '0') {
-    //   setGroupSize(0)
-    // }
+    setGroupSizePlaceholder(e.target.value);
   };
 
   const handleResetGroupSize = () => {
@@ -41,8 +37,8 @@ export const GameView = () => {
   const handleResetAll = () => {
     setSelectedCategory(null);
     setCategoryPlaceholder('Categories');
-    // setGroupSizePlaceholder('Group Size');
-    // setAgePlaceholder('Min Age');
+    setGroupSizePlaceholder('Group Size');
+    setAgePlaceholder('Min Age');
     setMinAge(0);
     setGroupSize(0);
   }
@@ -128,7 +124,7 @@ export const GameView = () => {
                 </svg>
               </div>
             </label> */}
-            {/* <select onChange={(e) => handleGroupSizeChange(e)} value={groupSizePlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
+            <select onChange={(e) => handleGroupSizeChange(e)} value={groupSizePlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
               <option key="0" value={0}>Group Size</option>
               <option key="1" value={1}>1</option>
               <option key="2" value={2}>2</option>
@@ -154,8 +150,8 @@ export const GameView = () => {
               <option key="16" value={16}>16</option>
               <option key="17" value={17}>17</option>
               <option key="18" value={18}>18+</option>
-            </select> */}
-            <div className="flex flex-col w-full mx-2 items-center mb-4">
+            </select>
+            {/* <div className="flex flex-col w-full mx-2 items-center mb-4">
               <div className="flex-row flex items-center gap-2">
                 <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom" data-tip="Use slider to select your group size">Group Size</label>
                 <div className="tooltip tooltip-bottom" data-tip="Reset group size">
@@ -232,7 +228,7 @@ export const GameView = () => {
                 <span>17</span>
                 <span>+</span>
               </div>
-            </div>
+            </div> */}
             <select onChange={(e) => handleCategoryChange(e)} value={categoryPlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
               <option key="" value="">Categories</option>
               {categories.map((category) => (
