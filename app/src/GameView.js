@@ -10,15 +10,38 @@ export const GameView = () => {
   const [agePlaceholder, setAgePlaceholder] = useState('Min Age');
   const [minAge, setMinAge] = useState(0);
   const [groupSize, setGroupSize] = useState(0);
+  const [rotate, setRotate] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
     setCategoryPlaceholder(e.target.value);
+    setSelectedIndex(null);
+    // filteredGames = gameData.filter((game) => {
+    //   return (
+    //     (!selectedCategory || game.category === selectedCategory) &&
+    //     (!minAge || game.ageMin <= minAge) &&
+    //     (groupSize === 0 || (groupSize >= game.playerMin && groupSize <= game.playerMax)) &&
+    //     (!selectedIndex || game.name === selectedIndex)
+    //   );
+    // });
   }
 
   const handleAgeChange = (e) => {
-    setMinAge(parseInt(e.target.value));
+    var age = parseInt(e.target.value);
+    if (age === 5) {
+      age = 0;
+    }
+    setMinAge(age);
     setAgePlaceholder(e.target.value);
+    setSelectedIndex(null);
+    // filteredGames = gameData.filter((game) => {
+    //   return (
+    //     (!selectedCategory || game.category === selectedCategory) &&
+    //     (!minAge || game.ageMin <= minAge) &&
+    //     (groupSize === 0 || (groupSize >= game.playerMin && groupSize <= game.playerMax))
+    //   );
+    // });
   }
 
   const handleClearMinAge = () => {
@@ -28,6 +51,14 @@ export const GameView = () => {
   const handleGroupSizeChange = (e) => {
     setGroupSize(parseInt(e.target.value));
     setGroupSizePlaceholder(e.target.value);
+    setSelectedIndex(null);
+    // filteredGames = gameData.filter((game) => {
+    //   return (
+    //     (!selectedCategory || game.category === selectedCategory) &&
+    //     (!minAge || game.ageMin <= minAge) &&
+    //     (groupSize === 0 || (groupSize >= game.playerMin && groupSize <= game.playerMax))
+    //   );
+    // });
   };
 
   const handleResetGroupSize = () => {
@@ -41,15 +72,36 @@ export const GameView = () => {
     setAgePlaceholder('Min Age');
     setMinAge(0);
     setGroupSize(0);
+    setSelectedIndex(null);
   }
 
-  const filteredGames = gameData.filter((game) => {
+  var filteredGames = gameData.filter((game) => {
     return (
       (!selectedCategory || game.category === selectedCategory) &&
       (!minAge || game.ageMin <= minAge) &&
-      (groupSize === 0 || (groupSize >= game.playerMin && groupSize <= game.playerMax))
+      (groupSize === 0 || (groupSize >= game.playerMin && groupSize <= game.playerMax)) &&
+      (!selectedIndex || game.name === selectedIndex)
     );
   });
+
+  const handleRandomizerClicked = () => {
+    setRotate(!rotate);
+    setSelectedIndex(null);
+    filteredGames = gameData.filter((game) => {
+      return (
+        (!selectedCategory || game.category === selectedCategory) &&
+        (!minAge || game.ageMin <= minAge) &&
+        (groupSize === 0 || (groupSize >= game.playerMin && groupSize <= game.playerMax))
+      );
+    });
+    let randomIndex = Math.floor(Math.random() * filteredGames.length);
+    while (filteredGames[randomIndex].name === selectedIndex && filteredGames.length > 1) {
+      randomIndex = Math.floor(Math.random() * filteredGames.length);
+    }
+    let selectedGame = filteredGames[randomIndex];
+    setSelectedIndex(selectedGame.name);
+    // console.log(selectedGame);
+  }
 
   const categories = gameCategories.map((category) => category.category);
 
@@ -124,7 +176,7 @@ export const GameView = () => {
                 </svg>
               </div>
             </label> */}
-            <select onChange={(e) => handleGroupSizeChange(e)} value={groupSizePlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
+            {/* <select onChange={(e) => handleGroupSizeChange(e)} value={groupSizePlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
               <option key="0" value={0}>Group Size</option>
               <option key="1" value={1}>1</option>
               <option key="2" value={2}>2</option>
@@ -150,10 +202,10 @@ export const GameView = () => {
               <option key="16" value={16}>16</option>
               <option key="17" value={17}>17</option>
               <option key="18" value={18}>18+</option>
-            </select>
-            {/* <div className="flex flex-col w-full mx-2 items-center mb-4">
+            </select> */}
+            <div className="flex flex-col w-full mx-2 items-center mb-4">
               <div className="flex-row flex items-center gap-2">
-                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom" data-tip="Use slider to select your group size">Group Size</label>
+                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom flex-none" data-tip="Use slider to select your group size">Group Size</label>
                 <div className="tooltip tooltip-bottom" data-tip="Reset group size">
                   <svg
                     width="14px"
@@ -175,22 +227,30 @@ export const GameView = () => {
                   </svg>
                 </div>
               </div>
-              <input type="range" min={1} max={9} value={groupSize} className="range range-primary lg:range-md range-sm xl:w-80 lg:w-60 sm:w-60 xs:w-40 w-48" step={1} onChange={handleGroupSizeChange} />
-              <div className="w-full flex justify-between text-sm px-2">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>+</span>
+              <div className="dropdown">
+                <div tabIndex={0} role="button" className="input input-bordered input-primary w-24 text-center content-center">{
+                  groupSize === 0 ? "Any" : groupSize === 9 ? "8+" : groupSize
+                }</div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <input type="range" min={0} max={9} value={groupSize} className="range range-primary lg:range-md range-sm w-full" step={1} onChange={handleGroupSizeChange} />
+                  <div className="w-full flex justify-between text-sm px-2">
+                    <span>*</span>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>+</span>
+                  </div>
+                </ul>
               </div>
             </div>
             <div className="flex flex-col w-full mx-2 items-center mb-4">
               <div className="flex-row flex items-center gap-2">
-                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom" data-tip="Use slider to select your group size">Minimum Age</label>
+                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom flex-none" data-tip="Use slider to select your group size">Min Age</label>
                 <div className="tooltip tooltip-bottom" data-tip="Reset group size">
                   <svg
                     width="14px"
@@ -212,23 +272,31 @@ export const GameView = () => {
                   </svg>
                 </div>
               </div>
-              <input type="range" min={6} max={18} value={minAge} className="range range-primary lg:range-md range-sm xl:w-80 lg:w-60 sm:w-60 xs:w-40 w-48" step={1} onChange={handleAgeChange} />
-              <div className="w-full flex justify-between text-sm px-2">
-                <span className="w-4">6</span>
-                <span className="w-4">7</span>
-                <span className="w-4">8</span>
-                <span className="w-3">9</span>
-                <span>10</span>
-                <span>11</span>
-                <span>12</span>
-                <span>13</span>
-                <span>14</span>
-                <span>15</span>
-                <span>16</span>
-                <span>17</span>
-                <span>+</span>
+              <div className="dropdown">
+                <div tabIndex={0} role="button" className="input input-bordered input-primary w-24 text-center content-center">{
+                  minAge <= 5 ? "Any" : minAge === 9 ? "8+" : minAge
+                }</div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-72">
+                  <input type="range" min={5} max={18} value={minAge} className="range range-primary lg:range-md range-sm w-full" step={1} onChange={handleAgeChange} />
+                  <div className="w-full flex justify-between text-sm px-2">
+                    <span className="w-4">*</span>
+                    <span className="w-4">6</span>
+                    <span className="w-4">7</span>
+                    <span className="w-4">8</span>
+                    <span className="w-3">9</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+                    <span>16</span>
+                    <span>17</span>
+                    <span>+</span>
+                  </div>
+                </ul>
               </div>
-            </div> */}
+            </div>
             <select onChange={(e) => handleCategoryChange(e)} value={categoryPlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
               <option key="" value="">Categories</option>
               {categories.map((category) => (
@@ -237,6 +305,24 @@ export const GameView = () => {
                 </option>
               ))}
             </select>
+            <div className="my-auto flex-col">
+              {/* <div className="btn btn-outline btn-primary bg-base-100">
+                Surprise Me
+              </div> */}
+              <div className="text-center text-sm mb-2 mt-0 mx-2">Random</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+                fill="currentColor"
+                className={`mx-auto bi bi-dice-5 xl:w-6 lg:w-5 md:w-4 w-3 transition-all duration-700 hover:scale-110 ${rotate ? "rotate-[180deg]" : "rotate-[0deg]"}`}
+                viewBox="0 0 16 16"
+                onClick={handleRandomizerClicked}
+              >
+                <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3z"/>
+                <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m4-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+              </svg>
+            </div>
             <div className="my-auto mx-2 tooltip" data-tip="Reset all filters">
               <svg
                 width="24px"
