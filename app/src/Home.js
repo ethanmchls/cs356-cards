@@ -1,7 +1,7 @@
 export const Home = () => {
   return (
     <div className="container mx-auto pt-4 w-screen h-screen flex flex-col">
-      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10 min-h-24 justify-between">
+      <div className="navbar bg-base-300 rounded-box sticky top-0 z-10 min-h-28 justify-between">
         <div className="flex-1 px-2 lg:flex-none font-bold xl:text-6xl lg:text-5xl md:text-3xl sm:text-2xl">
           Game Night
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" className="mx-3 bi bi-dice-5 xl:w-12 lg:w-10 md:w-8 w-4 transform ease-in-out duration-1000 hover:rotate-[360deg]" viewBox="0 0 16 16">
