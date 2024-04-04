@@ -3,15 +3,27 @@ import GameList from './GameList';
 import gameData from './gameData';
 import gameCategories from './categories';
 
+const dice = [
+  <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>,
+  <path d="M0 3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3zm5.5 1a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0m6.5 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>,
+  <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm2.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M8 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>,
+  <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm1 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m1.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M4 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>,
+  <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm2.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M8 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>,
+  <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm1 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m1.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M12 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M4 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+]
+
+const startDie = Math.floor(Math.random() * dice.length);
+
 export const GameView = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [categoryPlaceholder, setCategoryPlaceholder] = useState('Categories');
-  const [groupSizePlaceholder, setGroupSizePlaceholder] = useState('Group Size');
-  const [agePlaceholder, setAgePlaceholder] = useState('Min Age');
+  const [categoryPlaceholder, setCategoryPlaceholder] = useState('Any');
+  // const [groupSizePlaceholder, setGroupSizePlaceholder] = useState('Group Size');
+  // const [agePlaceholder, setAgePlaceholder] = useState('Min Age');
   const [minAge, setMinAge] = useState(0);
   const [groupSize, setGroupSize] = useState(0);
   const [rotate, setRotate] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [diceIndex, setDiceIndex] = useState(startDie);
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -33,7 +45,7 @@ export const GameView = () => {
       age = 0;
     }
     setMinAge(age);
-    setAgePlaceholder(e.target.value);
+    // setAgePlaceholder(e.target.value);
     setSelectedIndex(null);
     // filteredGames = gameData.filter((game) => {
     //   return (
@@ -44,13 +56,22 @@ export const GameView = () => {
     // });
   }
 
-  const handleClearMinAge = () => {
-    setMinAge(0);
-  };
+  // const handleClearMinAge = () => {
+  //   setMinAge(0);
+  // };
+
+  // const handleClearCategory = () => {
+  //   setSelectedCategory(null);
+  //   setCategoryPlaceholder('Any');
+  // }
+
+  // const handleClearRandomizer = () => {
+  //   setSelectedIndex(null);
+  // }
 
   const handleGroupSizeChange = (e) => {
     setGroupSize(parseInt(e.target.value));
-    setGroupSizePlaceholder(e.target.value);
+    // setGroupSizePlaceholder(e.target.value);
     setSelectedIndex(null);
     // filteredGames = gameData.filter((game) => {
     //   return (
@@ -61,15 +82,15 @@ export const GameView = () => {
     // });
   };
 
-  const handleResetGroupSize = () => {
-    setGroupSize(0);
-  }
+  // const handleResetGroupSize = () => {
+  //   setGroupSize(0);
+  // }
 
   const handleResetAll = () => {
     setSelectedCategory(null);
-    setCategoryPlaceholder('Categories');
-    setGroupSizePlaceholder('Group Size');
-    setAgePlaceholder('Min Age');
+    setCategoryPlaceholder('Any');
+    // setGroupSizePlaceholder('Group Size');
+    // setAgePlaceholder('Min Age');
     setMinAge(0);
     setGroupSize(0);
     setSelectedIndex(null);
@@ -85,6 +106,7 @@ export const GameView = () => {
   });
 
   const handleRandomizerClicked = () => {
+    setDiceIndex(Math.floor(Math.random() * dice.length));
     setRotate(!rotate);
     setSelectedIndex(null);
     filteredGames = gameData.filter((game) => {
@@ -116,7 +138,7 @@ export const GameView = () => {
           </svg>
         </div>
         <div className="flex justify-end flex-1">
-          <div className="flex items-stretch">
+          <div className="flex items-stretch mt-2">
             {/* <div className="flex flex-col w-full mx-2 items-center mb-4">
               <div className="flex-row flex items-center gap-2">
                 <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom" data-tip="Use slider to select your group size">Group Size</label>
@@ -203,10 +225,10 @@ export const GameView = () => {
               <option key="17" value={17}>17</option>
               <option key="18" value={18}>18+</option>
             </select> */}
-            <div className="flex flex-col w-full mx-2 items-center mb-4">
+            <div className="flex flex-col w-full mx-4 items-center mb-4">
               <div className="flex-row flex items-center gap-2">
-                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom flex-none" data-tip="Use slider to select your group size">Group Size</label>
-                <div className="tooltip tooltip-bottom" data-tip="Reset group size">
+                <label className="lg:text-lg md:text-md text-sm flex-none">Group Size</label>
+                {/* <div className="tooltip tooltip-bottom" data-tip="Reset group size">
                   <svg
                     width="14px"
                     height="14px"
@@ -225,16 +247,16 @@ export const GameView = () => {
                       </g>
                     </g>
                   </svg>
-                </div>
+                </div> */}
               </div>
               <div className="dropdown">
-                <div tabIndex={0} role="button" className="input input-bordered input-primary w-24 text-center content-center">{
+                <div tabIndex={0} role="button" className="select select-primary my-auto text-md w-24 py-2">{
                   groupSize === 0 ? "Any" : groupSize === 9 ? "8+" : groupSize
                 }</div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                   <input type="range" min={0} max={9} value={groupSize} className="range range-primary lg:range-md range-sm w-full" step={1} onChange={handleGroupSizeChange} />
                   <div className="w-full flex justify-between text-sm px-2">
-                    <span>*</span>
+                    <span>•</span>
                     <span>1</span>
                     <span>2</span>
                     <span>3</span>
@@ -248,10 +270,10 @@ export const GameView = () => {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col w-full mx-2 items-center mb-4">
+            <div className="flex flex-col w-full mx-4 items-center mb-4">
               <div className="flex-row flex items-center gap-2">
-                <label className="lg:text-lg md:text-md text-sm tooltip tooltip-bottom flex-none" data-tip="Use slider to select your group size">Min Age</label>
-                <div className="tooltip tooltip-bottom" data-tip="Reset group size">
+                <label className="lg:text-lg md:text-md text-sm flex-none">Min Age</label>
+                {/* <div className="tooltip tooltip-bottom" data-tip="Reset minimum age">
                   <svg
                     width="14px"
                     height="14px"
@@ -270,16 +292,16 @@ export const GameView = () => {
                       </g>
                     </g>
                   </svg>
-                </div>
+                </div> */}
               </div>
               <div className="dropdown">
-                <div tabIndex={0} role="button" className="input input-bordered input-primary w-24 text-center content-center">{
+                <div tabIndex={0} role="button" className="select select-primary my-auto text-md w-24 py-2">{
                   minAge <= 5 ? "Any" : minAge === 9 ? "8+" : minAge
                 }</div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-72">
                   <input type="range" min={5} max={18} value={minAge} className="range range-primary lg:range-md range-sm w-full" step={1} onChange={handleAgeChange} />
                   <div className="w-full flex justify-between text-sm px-2">
-                    <span className="w-4">*</span>
+                    <span className="w-4">•</span>
                     <span className="w-4">6</span>
                     <span className="w-4">7</span>
                     <span className="w-4">8</span>
@@ -297,18 +319,40 @@ export const GameView = () => {
                 </ul>
               </div>
             </div>
-            <select onChange={(e) => handleCategoryChange(e)} value={categoryPlaceholder} className="select select-primary ml-2 my-auto text-md lg:w-40 md:32 w-24">
-              <option key="" value="">Categories</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-            <div className="my-auto flex-col">
-              {/* <div className="btn btn-outline btn-primary bg-base-100">
-                Surprise Me
-              </div> */}
+            <div className="flex flex-col w-full mx-4 items-center mb-4">
+              <div className="flex-row flex items-center gap-2">
+                <label className="lg:text-lg md:text-md text-sm flex-none">Category</label>
+                {/* <div className="tooltip tooltip-bottom" data-tip="Reset category">
+                  <svg
+                    width="14px"
+                    height="14px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000"
+                    className="bi bi-x cursor-pointer"
+                    onClick={() => handleClearCategory()}
+                  >
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g fill="none" fillRule="evenodd" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" transform="matrix(0 1 1 0 2.5 2.5)">
+                        <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path>
+                        <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>
+                      </g>
+                    </g>
+                  </svg>
+                </div> */}
+              </div>
+              <select onChange={(e) => handleCategoryChange(e)} value={categoryPlaceholder} className="select select-primary my-auto text-md w-40">
+                <option key="" value="">Any</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {/* <div className="my-auto flex-col">
               <div className="text-center text-sm mb-2 mt-0 mx-2">Random</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -322,8 +366,51 @@ export const GameView = () => {
                 <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3z"/>
                 <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m4-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
               </svg>
+            </div> */}
+            <div className="flex flex-col w-full mx-4 items-center mb-4">
+              <div className="flex-row flex items-center gap-2">
+                <label className="lg:text-lg md:text-md text-sm flex-none">Surprise Me</label>
+                {/* <div className="tooltip tooltip-bottom" data-tip="Reset random selection">
+                  <svg
+                    width="14px"
+                    height="14px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000"
+                    className="bi bi-x cursor-pointer"
+                    onClick={() => handleClearRandomizer()}
+                  >
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g fill="none" fillRule="evenodd" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" transform="matrix(0 1 1 0 2.5 2.5)">
+                        <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path>
+                        <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>
+                      </g>
+                    </g>
+                  </svg>
+                </div> */}
+              </div>
+              <div className="dropdown">
+                <div tabIndex={0} role="button" className="btn btn-primary my-auto text-md w-32 py-2 flex-none text-white" onClick={handleRandomizerClicked}>
+                  Random
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    fill="white"
+                    className={`mx-auto bi bi-dice-5 xl:w-6 lg:w-5 md:w-4 w-3 transition-all duration-700 ${rotate ? "rotate-[180deg]" : "rotate-[0deg]"}`}
+                    viewBox="0 0 16 16"
+                  >
+                    {/* <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3z"/>
+                    <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m4-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/> */}
+                    {/* <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm2.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M8 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/> */}
+                    {dice[diceIndex]}
+                  </svg>
+                </div>
+              </div>
             </div>
-            <div className="my-auto mx-2 tooltip" data-tip="Reset all filters">
+            <div className="my-auto ml-2 mr-4 tooltip" data-tip="Reset all filters">
               <svg
                 width="24px"
                 height="24px"
