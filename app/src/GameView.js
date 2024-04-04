@@ -130,7 +130,7 @@ export const GameView = () => {
   return (
     <div className="container mx-auto pt-4 w-screen h-screen flex flex-col">
       <div className="px-2">
-        <div className="navbar flex flex-row bg-base-300 rounded-box sticky top-0 z-10 min-h-28 mx-auto">
+        <div className="navbar flex flex-row bg-base-300 rounded-box sticky top-0 z-10 h-28 mx-auto">
           <div className="flex-1 px-2 lg:flex-none font-bold xl:text-6xl lg:text-5xl md:text-3xl text-2xl">
             <a href="#/" className="hover:scale-105">Game Night</a>
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" className="mx-3 bi bi-dice-5 xl:w-12 lg:w-10 md:w-8 w-4 transform ease-in-out duration-1000 hover:rotate-[360deg]" viewBox="0 0 16 16">
