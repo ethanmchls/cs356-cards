@@ -129,7 +129,7 @@ export const GameView = () => {
 
   return (
     <div className="container mx-auto pt-4 w-screen h-screen flex flex-col">
-      <div className="navbar flex lg:flex-row md:flex-row flex-col bg-base-300 rounded-box sticky top-0 z-10 lg:min-h-24 md:h-24 min-h-32">
+      <div className="navbar flex lg:flex-row md:flex-row flex-col bg-base-300 rounded-box sticky top-0 z-10 min-h-28">
         <div className="flex-1 px-2 lg:flex-none font-bold xl:text-6xl lg:text-5xl md:text-3xl text-2xl">
           <a href="#/" className="hover:scale-105">Game Night</a>
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" className="mx-3 bi bi-dice-5 xl:w-12 lg:w-10 md:w-8 w-4 transform ease-in-out duration-1000 hover:rotate-[360deg]" viewBox="0 0 16 16">
@@ -410,7 +410,7 @@ export const GameView = () => {
                 </div>
               </div>
             </div>
-            <div className="my-auto ml-2 mr-4 tooltip" data-tip="Reset all filters">
+            <div className="mt-8 ml-2 mr-6 tooltip" data-tip="Reset all filters">
               <svg
                 width="24px"
                 height="24px"
