@@ -24,6 +24,9 @@ export const Home = () => {
           Game Night is a fun way to explore new games and find the perfect games for your next game night.
         </p>
         <p>
+          You can filter games based on your group size, group age, and desired category. If you're having a hard time deciding on a game, you can also use the "Surprise Me" button to get a random suggestion.
+        </p>
+        <p>
           Click the Explore button to get started!
         </p>
       </div>
