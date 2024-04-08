@@ -12,7 +12,8 @@ const dice = [
   <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm1 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m1.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M12 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M4 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
 ]
 
-const startDie = Math.floor(Math.random() * dice.length);
+// const startDie = Math.floor(Math.random() * dice.length);
+const startDie = 4;
 
 export const GameView = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -94,6 +95,7 @@ export const GameView = () => {
     setMinAge(0);
     setGroupSize(0);
     setSelectedIndex(null);
+    setDiceIndex(startDie);
   }
 
   var filteredGames = gameData.filter((game) => {
@@ -257,7 +259,7 @@ export const GameView = () => {
                   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                     <input type="range" min={0} max={9} value={groupSize} className="range range-primary lg:range-md range-sm w-full" step={1} onChange={handleGroupSizeChange} />
                     <div className="w-full flex justify-between text-sm px-2">
-                      <span>•</span>
+                      <span className="mr-1">•</span>
                       <span>1</span>
                       <span>2</span>
                       <span>3</span>
