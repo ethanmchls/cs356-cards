@@ -24,10 +24,19 @@ export const GameView = () => {
   const [diceIndex, setDiceIndex] = useState(startDie);
   const [resetDie, setResetDie] = useState(false);
 
+  const handleDiceReset = () => {
+    if (resetDie) {
+      setDiceIndex(startDie);
+      setResetDie(false);
+      setRotate(!rotate);
+    }
+  }
+
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
     setCategoryPlaceholder(e.target.value);
     setSelectedIndex(null);
+    handleDiceReset();
   }
 
   const handleAgeChange = (e) => {
@@ -37,11 +46,13 @@ export const GameView = () => {
     }
     setMinAge(age);
     setSelectedIndex(null);
+    handleDiceReset();
   }
 
   const handleGroupSizeChange = (e) => {
     setGroupSize(parseInt(e.target.value));
     setSelectedIndex(null);
+    handleDiceReset();
   };
 
   const handleResetAll = () => {
@@ -50,11 +61,7 @@ export const GameView = () => {
     setMinAge(0);
     setGroupSize(0);
     setSelectedIndex(null);
-    setDiceIndex(startDie);
-    if (resetDie) {
-      setResetDie(false);
-      setRotate(!rotate);
-    }
+    handleDiceReset();
   }
 
   var filteredGames = gameData.filter((game) => {
