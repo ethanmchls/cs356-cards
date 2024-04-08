@@ -22,6 +22,7 @@ export const GameView = () => {
   const [rotate, setRotate] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [diceIndex, setDiceIndex] = useState(startDie);
+  const [resetDie, setResetDie] = useState(false);
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -50,6 +51,10 @@ export const GameView = () => {
     setGroupSize(0);
     setSelectedIndex(null);
     setDiceIndex(startDie);
+    if (resetDie) {
+      setResetDie(false);
+      setRotate(!rotate);
+    }
   }
 
   var filteredGames = gameData.filter((game) => {
@@ -78,6 +83,7 @@ export const GameView = () => {
     }
     let selectedGame = filteredGames[randomIndex];
     setSelectedIndex(selectedGame.name);
+    setResetDie(true);
   }
 
   const categories = gameCategories.map((category) => category.category);
