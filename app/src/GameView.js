@@ -100,7 +100,8 @@ export const GameView = () => {
       <div className="px-2">
         <div className="navbar flex flex-row bg-base-300 rounded-box sticky top-0 z-10 h-28 mx-auto">
           <div className="flex-1 px-2 lg:flex-none font-bold xl:text-6xl lg:text-5xl md:text-3xl text-2xl">
-            <a href="#/" className="hover:scale-105">Game Night</a>
+            {/* <a href="#/" className="hover:scale-105">Game Night</a> */}
+            Game Night
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" className="mx-3 bi bi-dice-5 xl:w-12 lg:w-10 md:w-8 w-4 transform ease-in-out duration-1000 hover:rotate-[360deg]" viewBox="0 0 16 16">
               <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3z"/>
               <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m4-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
@@ -108,6 +109,26 @@ export const GameView = () => {
           </div>
           <div className="flex justify-end flex-1">
             <div className="flex items-stretch mt-2">
+              <div className="dropdown dropdown-end my-auto mr-2">
+                <div tabIndex={0} role="button" className="btn btn-ghost tooltip flex-none py-3" data-tip="Help">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14"/>
+                  </svg>
+                </div>
+                <div tabIndex={0} className="dropdown-content menu z-[1] card w-96 bg-base-200 mx-auto border-primary border-2 shadow-2xl shadow-gray-600">
+                  <div className="card-body">
+                    <p className="text-xl mb-8">
+                      Explore new games and find the perfect games for your next game night!
+                    </p>
+                    <p className="text-xl mb-8">
+                      Filter games based on your group.
+                    </p>
+                    <p className="text-xl">
+                      If you want a suggestion, we can pick one for you.
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className="flex flex-col w-full mx-4 items-center mb-4">
                 <div className="flex-row flex items-center gap-2">
                   <label className="lg:text-lg md:text-md text-sm flex-none">Group Size</label>
@@ -195,7 +216,7 @@ export const GameView = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 ml-2 mr-6 tooltip" data-tip="Reset all filters">
+              <div className="btn btn-ghost my-auto ml-2 mr-6 tooltip pt-3" data-tip="Reset all filters" onClick={() => handleResetAll()}>
                 <svg
                   width="24px"
                   height="24px"
@@ -203,7 +224,6 @@ export const GameView = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="#000000"
                   className="bi bi-x cursor-pointer"
-                  onClick={() => handleResetAll()}
                 >
                   <g id="SVGRepo_bgCarrier-1" strokeWidth="0"></g>
                   <g id="SVGRepo_tracerCarrier-1" strokeLinecap="round" strokeLinejoin="round"></g>
